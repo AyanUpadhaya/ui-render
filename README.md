@@ -17,10 +17,7 @@ Render components by path or name with props — no need for manual imports.
 
 📦 Installation
 npm install ui-render
-# or
-yarn add ui-render
-# or
-pnpm add ui-render
+
 
 
 This package requires React 18+ and Vite.
