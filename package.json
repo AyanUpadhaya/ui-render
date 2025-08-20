@@ -1,0 +1,62 @@
+{
+  "name": "ui-render",
+  "version": "0.1.0",
+  "description": "Django-style render() for React : render(componentPath, props)",
+  "keywords": [
+    "react",
+    "vite",
+    "render",
+    "ui"
+  ],
+  "author": "Ayan Upadhaya",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AyanUpadhaya/ui-render.git"
+  },
+  "bin": {
+    "ui-render": "./bin/cli.js"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "npm run build:main && npm run build:browser && npm run build:node",
+    "build:main": "tsup src/index.ts --format esm --dts",
+    "build:browser": "tsup src/browser/index.ts --format esm --dts --out-dir dist/browser",
+    "build:node": "tsup src/node --format esm --dts --out-dir dist/node",
+    "dev": "npm run build:browser -- --watch",
+    "manifest": "node dist/node/manifest.js"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  },
+  "dependencies": {
+    "fast-glob": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "tsup": "^8.0.1",
+    "typescript": "^5.5.4"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./browser": {
+      "types": "./dist/browser/index.d.ts",
+      "import": "./dist/browser/index.js"
+    },
+    "./node": {
+      "types": "./dist/node/index.d.ts",
+      "import": "./dist/node/index.js"
+    }
+  }
+}
