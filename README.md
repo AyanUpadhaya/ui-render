@@ -137,6 +137,22 @@ render(componentName: string, props?: Record<string, any>): ReactNode
 | `src/components/About.tsx`            | `"About"`               |
 | `src/components/shared/UserInfoCard.tsx` | `"shared/UserInfoCard"` |
 
+⚠️ **Important Warning**
+
+Do **not** render a component inside itself using the `render()` function.  
+For example, avoid doing this inside `Home.tsx`:
+
+```tsx
+function Home() {
+  return (
+    <div>
+      {render("Home")} {/* ❌ This will cause infinite recursion */}
+    </div>
+  );
+}
+```
+
+
 
 🛠 Next Version goals
 
